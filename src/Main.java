@@ -1,11 +1,22 @@
-import java.util.Scanner;
+import model.*;
+import player.Computador;
+import player.Jogador;
+import service.Jogo;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Jogador jogador1 = new Jogador("Gabriel",Jogada.PAPEL);
-        Jogador jogador2 = new Jogador("Carlos", Jogada.TESOURA);
+        Jogador jogador = new Jogador();
+        Computador computador = new Computador();
+        Jogo jogo = new Jogo();
 
-        jogador1.realizarJogada(jogador1.getJogada(),jogador2.getJogada());
+        Jogada escolhaJogador = jogador.escolher();
+        Jogada escolhaJogador2 = jogador.escolher();
+
+        System.out.println("Jogador2 escolheu: " + escolhaJogador2);
+
+        Resultado resultado = jogo.verificar(escolhaJogador, escolhaJogador2);
+
+        System.out.println("Resultado: " + resultado);
+
     }
 }
